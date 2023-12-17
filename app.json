@@ -4,10 +4,17 @@
     "web": {
       "bundler": "metro"
     },
-    "plugins": [
-      "expo-router"
-    ],
     "name": "BDOGrindTracker_client",
-    "slug": "BDOGrindTracker_client"
+    "slug": "BDOGrindTracker_client",
+    "splash": {
+      "image": "./assets/images/logo_small2.png",
+      "backgroundColor": "#000000"
+    },
+    "androidNavigationBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#000000"
+    },
+
+    "plugins": ["expo-router"]
   }
 }
