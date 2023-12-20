@@ -1,7 +1,7 @@
 import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import * as yup from 'yup';
 import {
   View,
@@ -16,6 +16,7 @@ import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 import { API_URL } from '@env';
 import { useSession } from '../components/AuthProvider';
+import { useEffect } from 'react';
 
 const signInSchema = yup.object().shape({
   email: yup
@@ -26,8 +27,13 @@ const signInSchema = yup.object().shape({
 });
 
 const SignIn = () => {
-  const { signIn } = useSession();
+  const { signIn, error } = useSession();
   const router = useRouter();
+
+  useEffect(() => {
+    // This effect will be triggered whenever the 'error' state changes
+    console.log(error);
+  }, [error]); // Add 'error' to the dependency array
 
   return (
     <>
@@ -37,7 +43,9 @@ const SignIn = () => {
           <Formik
             validationSchema={signInSchema}
             initialValues={{ email: '', password: '' }}
-            onSubmit={(values) => signIn(values)}
+            onSubmit={(values) => {
+              signIn(values);
+            }}
           >
             {({
               handleChange,
@@ -77,6 +85,11 @@ const SignIn = () => {
                     {errors.password && (
                       <Text style={styles.errorText}>{errors.password}</Text>
                     )}
+                  </View>
+                )}
+                {error && (
+                  <View style={styles.errorCard}>
+                    <Text style={styles.errorText}>{error}</Text>
                   </View>
                 )}
 

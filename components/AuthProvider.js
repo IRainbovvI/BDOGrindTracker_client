@@ -79,11 +79,6 @@ export function SessionProvider(props) {
         },
         signOut: async () => {
           await setSession(null);
-          navigation.dispatch(
-            CommonActions.reset({
-              routes: [{ name: 'MyStats' }]
-            })
-          );
           router.replace('/');
         },
         session,

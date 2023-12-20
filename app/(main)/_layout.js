@@ -24,7 +24,11 @@ export default function AppLayout() {
       screenOptions={{
         headerShown: false,
         tabBarInactiveBackgroundColor: COLORS.primary,
-        tabBarActiveBackgroundColor: COLORS.gray
+        tabBarActiveBackgroundColor: COLORS.gray,
+        tabBarStyle: {
+          borderColor: COLORS.tertiary,
+          borderTopWidth: 1
+        }
       }}
     >
       <Tabs.Screen
