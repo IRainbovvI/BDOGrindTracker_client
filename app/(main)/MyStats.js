@@ -2,8 +2,6 @@ import axios from 'axios';
 import { Tabs, useFocusEffect, useNavigation, useRouter } from 'expo-router';
 import React from 'react';
 import { useState } from 'react';
-import { API_URL } from '@env';
-import { useEffect } from 'react';
 import {
   Dimensions,
   Image,
@@ -33,12 +31,15 @@ const MyStats = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get(API_URL + '/api/session/user', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: session
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + '/api/session/user',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: session
+          }
         }
-      });
+      );
 
       if (response.data) {
         setMutatedSessions({

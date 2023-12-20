@@ -17,7 +17,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { COLORS } from '../constants';
-import { API_URL } from '@env';
 import { useSession } from '../components/AuthProvider';
 
 const NewSession = () => {
@@ -36,7 +35,7 @@ const NewSession = () => {
     const getData = async () => {
       try {
         const responseLocation = await axios.get(
-          API_URL + '/api/location/' + id,
+          process.env.REACT_APP_API_URL + '/api/location/' + id,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -44,18 +43,24 @@ const NewSession = () => {
             }
           }
         );
-        const responseBuffs = await axios.get(API_URL + '/api/buff/', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: session
+        const responseBuffs = await axios.get(
+          process.env.REACT_APP_API_URL + '/api/buff/',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: session
+            }
           }
-        });
-        const responseClasses = await axios.get(API_URL + '/api/char_class/', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: session
+        );
+        const responseClasses = await axios.get(
+          process.env.REACT_APP_API_URL + '/api/char_class/',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: session
+            }
           }
-        });
+        );
         if (responseLocation.data && responseBuffs.data && responseClasses) {
           setLocation(responseLocation.data);
           setBuffs(responseBuffs.data);
@@ -89,7 +94,7 @@ const NewSession = () => {
     }
     try {
       const response = await axios.post(
-        API_URL + '/api/session/create',
+        process.env.REACT_APP_API_URL + '/api/session/create',
         {
           location: location._id,
           hours: parseInt(values.hours, 10) || 0,

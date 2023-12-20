@@ -17,7 +17,6 @@ import {
 } from 'react-native';
 import { useSession } from '../components/AuthProvider';
 import { COLORS } from '../constants';
-import { API_URL } from '@env';
 
 const SearchLocation = () => {
   const { session } = useSession();
@@ -26,12 +25,15 @@ const SearchLocation = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(API_URL + '/api/location', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: session
+        const response = await axios.get(
+          process.env.REACT_APP_API_URL + '/api/location',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: session
+            }
           }
-        });
+        );
         if (response.data) {
           setLocations(response.data);
           setFilteredLocations(response.data);

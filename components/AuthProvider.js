@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStorageState } from './useStorageState';
-import { API_URL } from '@env';
 import axios from 'axios';
 import { useNavigation, useRouter } from 'expo-router';
 import { CommonActions } from '@react-navigation/native';
@@ -36,7 +35,7 @@ export function SessionProvider(props) {
         signIn: async (values) => {
           try {
             const response = await axios.post(
-              API_URL + '/api/user/signin',
+              process.env.REACT_APP_API_URL + '/api/user/signin',
               values,
               {
                 headers: { 'Content-Type': 'application/json' }
@@ -58,7 +57,7 @@ export function SessionProvider(props) {
         signUp: async (values) => {
           try {
             const response = await axios.post(
-              API_URL + '/api/user/signup',
+              process.env.REACT_APP_API_URL + '/api/user/signup',
               values,
               {
                 headers: { 'Content-Type': 'application/json' }

@@ -12,9 +12,6 @@ import {
   Dimensions
 } from 'react-native';
 import { COLORS, images, icons, SIZES, FONT } from '../constants';
-import axios from 'axios';
-import * as SecureStore from 'expo-secure-store';
-import { API_URL } from '@env';
 import { useSession } from '../components/AuthProvider';
 
 const signUpSchema = yup.object().shape({

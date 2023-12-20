@@ -1,4 +1,3 @@
-import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import { Formik } from 'formik';
 import React from 'react';
@@ -12,9 +11,6 @@ import {
   Dimensions
 } from 'react-native';
 import { COLORS, images, icons, SIZES, FONT } from '../constants';
-import axios from 'axios';
-import * as SecureStore from 'expo-secure-store';
-import { API_URL } from '@env';
 import { useSession } from '../components/AuthProvider';
 
 const signInSchema = yup.object().shape({

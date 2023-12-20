@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Tabs, useFocusEffect } from 'expo-router';
 import React from 'react';
-import { API_URL } from '@env';
 import { useState } from 'react';
 import {
   StyleSheet,
@@ -27,19 +26,25 @@ const GeneralStats = () => {
 
   const getData = async () => {
     try {
-      const responseSessions = await axios.get(API_URL + '/api/session', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: session
+      const responseSessions = await axios.get(
+        process.env.REACT_APP_API_URL + '/api/session',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: session
+          }
         }
-      });
+      );
 
-      const responseLocations = await axios.get(API_URL + '/api/location', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: session
+      const responseLocations = await axios.get(
+        process.env.REACT_APP_API_URL + '/api/location',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: session
+          }
         }
-      });
+      );
 
       if (responseSessions.data && responseLocations.data) {
         const tableHead = ['Item', 'Location', 'Hours', 'Silver/Hour'];
