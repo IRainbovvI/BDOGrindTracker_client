@@ -1,20 +1,20 @@
 {
-  "expo": {
-    "scheme": "acme",
-    "web": {
-      "bundler": "metro"
-    },
-    "name": "BDOGrindTracker_client",
-    "slug": "BDOGrindTracker_client",
-    "splash": {
-      "image": "./assets/images/logo_small2.png",
-      "backgroundColor": "#000000"
-    },
-    "androidNavigationBar": {
-      "barStyle": "light-content",
-      "backgroundColor": "#000000"
-    },
+    "expo": {
+        "scheme": "acme",
+        "web": {
+            "bundler": "metro"
+        },
+        "name": "BDOGrindTracker_client",
+        "slug": "BDOGrindTracker_client",
+        "splash": {
+            "image": "./assets/images/logo_small2.png",
+            "backgroundColor": "#000000"
+        },
+        "androidNavigationBar": {
+            "barStyle": "light-content",
+            "backgroundColor": "#000000"
+        },
 
-    "plugins": ["expo-router"]
-  }
+        "plugins": ["expo-router"]
+    }
 }
