@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
@@ -383,13 +383,6 @@ const styles = StyleSheet.create({
     color: COLORS.tertiary,
     fontSize: 14
   },
-  h: {
-    color: COLORS.tertiary,
-    alignSelf: 'center',
-    fontSize: 25,
-    fontWeight: 'bold',
-    letterSpacing: 1
-  },
   card: {
     backgroundColor: COLORS.secondary,
     borderRadius: 5,
@@ -442,25 +435,6 @@ const styles = StyleSheet.create({
   buffGroup: {
     color: COLORS.tertiary,
     fontSize: 17
-  },
-  itemImage: {
-    width: 35,
-    height: 35,
-    margin: 3
-  },
-  locationName: {
-    backgroundColor: COLORS.primary,
-    marginTop: 40,
-    color: COLORS.tertiary,
-    marginBottom: 10,
-    fontSize: 20
-  },
-  errorCard: {
-    borderWidth: 1,
-    borderColor: 'red',
-    borderRadius: 5,
-    padding: 5,
-    marginVertical: 5
   },
   errorText: {
     color: 'red',

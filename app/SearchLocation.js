@@ -1,15 +1,13 @@
 import axios from 'axios';
-import { Link, router, Stack, useRouter } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import {
   Dimensions,
   Image,
-  Modal,
   Pressable,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   TextInput,
@@ -141,13 +139,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.tertiary
-  },
-  h: {
-    color: COLORS.tertiary,
-    alignSelf: 'center',
-    fontSize: 25,
-    fontWeight: 'bold',
-    letterSpacing: 1
   },
   scrollView: {
     backgroundColor: COLORS.primary,

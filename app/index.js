@@ -1,30 +1,26 @@
-import {
-  View,
-  Image,
-  Text,
-  ScrollView,
-  SafeAreaView,
-  StyleSheet,
-  Pressable,
-  TouchableOpacity
-} from 'react-native';
-import { useEffect, useState } from 'react';
-import { Link, SplashScreen, Stack, useRouter, router } from 'expo-router';
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useEffect } from 'react';
+import { SplashScreen, Stack, useRouter } from 'expo-router';
 import * as ScreenOrientation from 'expo-screen-orientation';
-import { COLORS, images, icons, SIZES, FONT } from '../constants';
+import { COLORS, images } from '../constants';
 import { LogBox } from 'react-native';
 import { useSession } from '../components/AuthProvider';
-LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+
+LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 SplashScreen.preventAutoHideAsync();
 const Home = () => {
   const router = useRouter();
   ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+  const { session } = useSession();
 
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hideAsync();
     }, 1000);
+    if (session) {
+      router.replace('/MyStats');
+    }
   }, []);
 
   return (

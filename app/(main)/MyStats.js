@@ -1,30 +1,21 @@
 import axios from 'axios';
-import { Tabs, useFocusEffect, useNavigation, useRouter } from 'expo-router';
+import { Tabs, useFocusEffect, useRouter } from 'expo-router';
 import React from 'react';
 import { useState } from 'react';
 import {
   Dimensions,
   Image,
-  Pressable,
   StyleSheet,
   Text,
   View,
   ScrollView,
   TouchableOpacity
 } from 'react-native';
-import { BarChart } from 'react-native-chart-kit';
-import {
-  Cell,
-  Row,
-  Rows,
-  Table,
-  TableWrapper
-} from 'react-native-reanimated-table';
+import { Cell, Row, Table, TableWrapper } from 'react-native-reanimated-table';
 import {
   VictoryAxis,
   VictoryBar,
   VictoryChart,
-  VictoryContainer,
   VictoryLabel,
   VictoryTheme
 } from 'victory-native';
@@ -359,13 +350,6 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.tertiary
   },
-  h: {
-    color: COLORS.tertiary,
-    alignSelf: 'center',
-    fontSize: 25,
-    fontWeight: 'bold',
-    letterSpacing: 1
-  },
   image: {
     width: 30,
     height: 30,
@@ -412,9 +396,6 @@ const styles = StyleSheet.create({
   header2: {
     color: COLORS.tertiary,
     fontSize: 18
-  },
-  chart: {
-    data: { fill: 'black' }
   },
   chartLabel: {
     fill: 'orange',

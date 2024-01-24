@@ -1,16 +1,6 @@
 import axios from 'axios';
-import {
-  Link,
-  Tabs,
-  useFocusEffect,
-  useGlobalSearchParams,
-  useLocalSearchParams,
-  useNavigation,
-  useRouter
-} from 'expo-router';
+import { Tabs, useRouter } from 'expo-router';
 import React from 'react';
-import { useState } from 'react';
-import Dialog from 'react-native-dialog';
 import {
   StyleSheet,
   Text,
@@ -18,17 +8,9 @@ import {
   ScrollView,
   Dimensions,
   Image,
-  Pressable,
-  Modal,
   TouchableOpacity
 } from 'react-native';
-import {
-  Cell,
-  Row,
-  Rows,
-  Table,
-  TableWrapper
-} from 'react-native-reanimated-table';
+import { Cell, Row, Table, TableWrapper } from 'react-native-reanimated-table';
 import { useSession } from '../../components/AuthProvider';
 import { COLORS } from '../../constants';
 import { useStatsContext } from '../../components/StatsContext';
@@ -187,28 +169,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  modal: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  modalContainer: {
-    width: Dimensions.get('window').width * 0.8,
-    height: Dimensions.get('window').height * 0.8,
-
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5
-  },
   button: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -223,13 +183,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.tertiary
-  },
-  h: {
-    color: COLORS.tertiary,
-    alignSelf: 'center',
-    fontSize: 25,
-    fontWeight: 'bold',
-    letterSpacing: 1
   },
   image: {
     width: 30,
@@ -273,10 +226,6 @@ const styles = StyleSheet.create({
     borderBottomColor: COLORS.tertiary,
     marginBottom: 10,
     fontSize: 20
-  },
-  header2: {
-    color: COLORS.tertiary,
-    fontSize: 18
   },
   filterButtons: {
     flex: 1,
